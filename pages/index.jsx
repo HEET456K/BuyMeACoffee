@@ -18,14 +18,15 @@ export default function Home() {
   const [message, setMessage] = useState("");
   const [memos, setMemos] = useState([]);
   const [coffeeCount, setCoffeeCount] = useState(0);
+  const [network, setNetwork] = useState("");
 
   const onNameChange = (event) => {
     setName(event.target.value);
-  }
+  };
 
   const onMessageChange = (event) => {
     setMessage(event.target.value);
-  }
+  };
 
   // Wallet connection logic
   const isWalletConnected = async () => {
@@ -37,7 +38,7 @@ export default function Home() {
         return;
       }
 
-      const accounts = await ethereum.request({ method: 'eth_accounts' })
+      const accounts = await ethereum.request({ method: 'eth_accounts' });
       console.log("accounts: ", accounts);
 
       if (accounts.length > 0) {
@@ -47,10 +48,22 @@ export default function Home() {
       } else {
         console.log("Make sure MetaMask is connected");
       }
+
+      const chainId = await ethereum.request({ method: 'eth_chainId' });
+      setNetwork(chainId);
+
+      ethereum.on('chainChanged', handleChainChanged);
+
+      function handleChainChanged(_chainId) {
+        console.log("Network changed to: ", _chainId);
+        setCurrentAccount("");
+        setNetwork(_chainId);
+        window.location.reload();
+      }
     } catch (error) {
       console.log("Error: ", error);
     }
-  }
+  };
 
   const connectWallet = async () => {
     try {
@@ -66,10 +79,11 @@ export default function Home() {
       });
 
       setCurrentAccount(accounts[0]);
+      getMemos(); // Fetch memos upon wallet connection
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   const buyACoffee = async () => {
     try {
@@ -83,18 +97,14 @@ export default function Home() {
           contractABI,
           signer
         );
-        console.log(buyMeACoffee);
-        console.log(signer);
-        console.log(provider);
 
-        console.log("buying coffee..")
+        console.log("buying coffee..");
 
         const coffeeTxn = await buyMeACoffee.buyACoffee(
           name ? name : "person",
           message ? message : "Enjoy your coffee!",
           { value: ethers.utils.parseEther("0.001", "ether") }
         );
-
 
         await coffeeTxn.wait();
 
@@ -146,17 +156,16 @@ export default function Home() {
       setMemos((prevState) => [
         ...prevState,
         {
-          address: from,
+          from,
           timestamp: new Date(timestamp * 1000),
-          message,
-          name
+          name,
+          message
         }
       ]);
     };
 
     const { ethereum } = window;
 
-    // Listen for new memo events.
     if (ethereum) {
       const provider = new ethers.providers.Web3Provider(ethereum, "any");
       const signer = provider.getSigner();
@@ -173,15 +182,14 @@ export default function Home() {
       if (buyMeACoffee) {
         buyMeACoffee.off("NewMemo", onNewMemo);
       }
-    }
-  }, []);
+    };
+  }, [currentAccount]);
 
   return (
-    <div>
+    <>
       <Head>
         <title>Buy Me A Coffee</title>
-        <meta name="description" content="Buy Me A Coffee" />
-        <link rel="icon" href="/logo.jpg" />
+        <meta name="description" content="Support me with a coffee!" />
       </Head>
       <Header />
       <Main />
@@ -196,6 +204,10 @@ export default function Home() {
         currentAccount={currentAccount}
         memos={memos}
       />
-    </div>
+
+      <Description />
+
+
+    </>
   );
 }

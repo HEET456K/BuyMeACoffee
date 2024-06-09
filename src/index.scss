@@ -69,6 +69,7 @@ body::before {
   position: absolute;
   left: 0;
   z-index: 2;
+  padding-bottom: 90%;
 }
 
 .main-content textarea {
@@ -144,12 +145,13 @@ body::before {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 5);
 }
 .header{
-  z-index: 11;
-  display: flex;
-  top: 5%;
-  width: 100%;
+  all:unset;
   position: absolute;
-  justify-content: space-between
+  z-index: 11;
+  width: 100%;
+  margin-top: 2.5%;
+  display: flex;
+  justify-content: space-between;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Kanit:900');
@@ -261,7 +263,7 @@ $primarycolour: rgb(136, 102, 102);
       $shadowopacity: .0);
 }
 .label-text-2 {
-  color: #FFF;
+  color: rgba(243, 148, 23, 0.975);
   font-family: "Poppins", sans-serif;
   font-size: 50px;
   line-height: 0.7em;
@@ -270,16 +272,12 @@ $primarycolour: rgb(136, 102, 102);
   transform: translateY(-50%);
   width: 100%;
 
-  @include text3d(adjust-color(rgba(243, 148, 23, 0.975), $lightness: -8%),
-    $depth: 5,
-    $primaryshadowcolour: adjust-color($primarycolour, $lightness: -10%, $saturation: +20%),
-    $shadowopacity: .0);
 }
 .label-text-2:hover {
-  color: rgba(243, 148, 23, 0.975);
+  color: rgba(255, 255, 255, 0.975);
   cursor: pointer;
 
-  @include text3d(adjust-color($primarycolour, $lightness: -12%),
+  @include text3d(adjust-color(rgba(255, 145, 0, 0.975), $lightness: -12%),
       $depth:5,
       $primaryshadowcolour: adjust-color(white, $lightness: 100%, $saturation: +20%),
       $shadowopacity: .0);
@@ -287,7 +285,6 @@ $primarycolour: rgb(136, 102, 102);
 
 .button-content {
   max-width: 400px;
-  /* Set the maximum width of the div */
 }
 
 .button-content button {
@@ -446,6 +443,27 @@ font-family: "Fredoka", sans-serif;
     @include text3d(adjust-color(rgba(56, 35, 6, 0.975), $lightness: 10%),
       $depth: 5,
       $shadowopacity: .0);
+}
+
+.connect-btn button{
+  z-index: 17;
+  position: absolute;
+  width: 350px;
+  left: 1%;
+  margin-top: 10%;
+}
+.connect-btn h2{
+  color: white;
+}
+.btn-text{
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-size: 25px;
+    color: white;
+    position: absolute;
+    z-index: 21;
+    margin-top: 6%;
 }
 @keyframes blink {
   from {

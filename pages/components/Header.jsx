@@ -1,13 +1,14 @@
-import React from 'react'
+import React from 'react';
 
 const Header = () => {
     return (
         <div className='header'>
-            <h1 className='label-text-2'>GitHub &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</h1>
-            <h1 className='label-text-2'>Contact &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</h1>
-            <h1 className='label-text-2'>Smart Contract</h1>
+            <a href="https://github.com/HEET456K/BuyMeACoffee.git" className='label-text-2 link'>GitHub</a>
+            <a href="https://www.linkedin.com/in/heet-vavadiya-456k/" className='label-text-2 link'>Contact</a>
+            <a href="https://github.com/HEET456K/Coffee-ETH-Contract.git" className='label-text-2 link'>Contract</a>
         </div>
-    )
+    );
 }
 
-export default Header
+export default Header;
+

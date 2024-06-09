@@ -54,8 +54,9 @@ const NameForm = ({
                         </form>
                     </div>
                 ) : (
-                    <div className="button-content">
-                        <button className='-' onClick={connectWallet}>Connect your wallet</button>
+                    <div className="button-content connect-btn">
+                        <h2 className='btn-text'>Connect Your Wallet.</h2>
+                        <button onClick={connectWallet}>SWITCH TO POLYGON AMOY</button>
                     </div>
                 )}
             </main>
