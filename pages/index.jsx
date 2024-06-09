@@ -181,7 +181,7 @@ export default function Home() {
       <Head>
         <title>Buy Me A Coffee</title>
         <meta name="description" content="Buy Me A Coffee" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/logo.jpg" />
       </Head>
       <Header />
       <Main />

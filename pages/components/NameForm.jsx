@@ -79,7 +79,7 @@ const NameForm = ({
                     ))}
                     <footer>
                         <div className='footer'>
-                            <h1>"Just a sip away from a fresh cup of creativity. Help fuel my day!"</h1>
+                            <h1>&quot;Just a sip away from a fresh cup of creativity. Help fuel my day!&quot;</h1>
                         </div>
                     </footer>
                 </div>
