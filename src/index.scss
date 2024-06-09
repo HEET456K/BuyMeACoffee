@@ -41,7 +41,6 @@ body::before {
   border-radius: 8px;
   width: calc(100% - 0rem);
   margin: auto;
-  margin-top: 0px;
 }
 
 .main-content h1,
@@ -55,12 +54,14 @@ body::before {
   position: absolute;
   margin-top: 9%;
   flex-direction: column;
+  margin-left: 1%;
   align-items: center;
   z-index: 4;
 }
 
 .main-content label {
   margin-top: 1rem;
+  font-size: 5em;
 }
 .square{
   background: rgb(31, 27, 27);
@@ -128,7 +129,7 @@ body::before {
   font-display: swap;
   font-family: 'Anton', sans-serif;
   color: white;
-  font-size: 9em;
+  font-size: 11em;
   top: 35%;
   left: 45%;
   position: absolute;
@@ -312,7 +313,7 @@ $primarycolour: rgb(136, 102, 102);
   z-index: 14;
   width: 100%;
   position: absolute;
-  top: 1690%;
+  margin-top: 90%;
   left: 0;
   padding-top: 5px;
   background-color: rgb(242, 239, 239);
@@ -378,7 +379,7 @@ font-family: "Fredoka", sans-serif;
   width: 90%;
   text-align: center;
   left: 5%;
-  top: 115%;
+  top: 105%;
   border-radius: 1.5em;
   border-bottom: 6px solid rgba(243, 148, 23, 0.975);
   border-right: 6px solid rgba(243, 148, 23, 0.975);
@@ -421,7 +422,7 @@ font-family: "Fredoka", sans-serif;
 }
 
 .down{
-  margin-top: 25%;
+  margin-top: 20%
 }
 .footer{
   position: absolute;
@@ -476,3 +477,24 @@ font-family: "Fredoka", sans-serif;
 } 
 
 
+@media screen and (max-width: 768px) {
+  .main-content {
+    padding: 1rem;
+  }
+
+  .header {
+    margin-top: 1%;
+  }
+
+  .label-text {
+    font-size: 30px;
+  }
+
+  .label-text-2 {
+    font-size: 30px;
+  }
+
+  .main-content button {
+    font-size: 16px;
+  }
+}
