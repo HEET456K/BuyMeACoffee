@@ -31,8 +31,7 @@ const NameForm = ({
                                         placeholder="Your name"
                                         className='input-textarea'
                                         value={name}
-                                        onChange=
-                                        {onNameChange}
+                                        onChange={onNameChange}
                                     />
                                 </div>
                                 <div className="con2">
@@ -56,7 +55,8 @@ const NameForm = ({
                     </div>
                 ) : (
                     <div className="button-content">
-                        <button className='-' onClick={connectWallet}>Connect your wallet</button></div>
+                        <button className='-' onClick={connectWallet}>Connect your wallet</button>
+                    </div>
                 )}
             </main>
 
@@ -65,11 +65,11 @@ const NameForm = ({
                     <h2 className='label-text-5'>Recent</h2>
                     {memos.map((memo, idx) => (
                         <div key={idx} className='memo'>
-                            <h1 className='label-text-3'> {"MESSAGE:"} <p className='label-text-4'>&quot;{memo.message}&quot;</p></h1>
+                            <h1 className='label-text-3'> MESSAGE: <p className='label-text-4'>&quot;{memo.message}&quot;</p></h1>
 
-                            <h1 className='label-text-3'>{"NAME:"}  <p className='label-text-4'> {memo.name} ({currentAccount})</p></h1>
+                            <h1 className='label-text-3'>NAME:  <p className='label-text-4'> {memo.name} ({currentAccount})</p></h1>
 
-                            <h1 className='label-text-3'>{"Time"}:
+                            <h1 className='label-text-3'>Time:
                                 <p className='label-text-4'>
                                     {stylizeTimestamp(memo.timestamp).toString()}
                                 </p>
@@ -83,11 +83,8 @@ const NameForm = ({
                         </div>
                     </footer>
                 </div>
-            )
-            }
-
-
-        </div >
+            )}
+        </div>
     );
 };
 
